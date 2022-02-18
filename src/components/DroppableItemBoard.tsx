@@ -20,6 +20,7 @@ const Wrapper = styled.div<{ boardId: any }>`
     background-color:transparent;
     
     `}
+  overflow: hidden;
 `;
 
 interface IBoardProps {
@@ -44,8 +45,8 @@ const Board = styled.div<IBoardProps>`
     border-radius: 50%;
     background-color:khaki;
     position:absolute;
-    top:0;
-    left:0;
+    bottom:0;
+    right:0;
     margin:30px;
     `}
   transition: background-color 0.2s ease-in-out;

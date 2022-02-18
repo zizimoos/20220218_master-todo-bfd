@@ -14,6 +14,7 @@ const Container = styled.div`
   justify-content: center;
   align-items: center;
   background-color: #fafafa;
+  overflow: hidden;
 `;
 
 const BoardHome = styled.div`
