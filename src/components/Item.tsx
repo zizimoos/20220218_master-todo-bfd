@@ -10,9 +10,10 @@ const Wrapper = styled.div`
   max-width: 680px;
   height: 100vh;
   margin: 0 auto;
+  margin-top: 20px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
 `;
 
@@ -38,7 +39,10 @@ const Item = () => {
           const targt = workListCopy.splice(source.index, 1);
           workListCopy.splice(destination.index, 0, ...targt);
           setWorkList({ ...workList, [source.droppableId]: workListCopy });
-          localStorage.setItem("workList", JSON.stringify(workListCopy));
+          localStorage.setItem(
+            "workList",
+            JSON.stringify({ ...workList, [source.droppableId]: workListCopy })
+          );
         }
         if (destination.droppableId !== source.droppableId) {
           const sourceWorkList = [...workList[source.droppableId]];
@@ -57,6 +61,15 @@ const Item = () => {
               [source.droppableId]: sourceWorkList,
               [destination.droppableId]: destinationWorkList,
             })
+          );
+        }
+        if (destination.droppableId === "WAST") {
+          const workListCopy = [...workList[source.droppableId]];
+          workListCopy.splice(source.index, 1);
+          setWorkList({ ...workList, [source.droppableId]: workListCopy });
+          localStorage.setItem(
+            "workList",
+            JSON.stringify({ ...workList, [source.droppableId]: workListCopy })
           );
         }
       }}

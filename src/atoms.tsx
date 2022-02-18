@@ -3,8 +3,13 @@ import { atom } from "recoil";
 const localStorageData = localStorage.getItem("workList");
 const workList = localStorageData ? JSON.parse(localStorageData) : [];
 
-interface IWorkList {
-  [key: string]: string[];
+export interface ITodo {
+  id: number;
+  text: string;
+}
+
+export interface IWorkList {
+  [key: string]: ITodo[];
 }
 
 export const workListState = atom<IWorkList>({
