@@ -16,14 +16,12 @@ const Wrapper = styled.div`
   justify-content: flex-start;
   align-items: center;
 `;
-
 const Boards = styled.div`
   width: 100%;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 10px;
 `;
-
 const Item = () => {
   const [workList, setWorkList] = useRecoilState(workListState);
   console.log(workList);
@@ -88,4 +86,5 @@ const Item = () => {
     </DragDropContext>
   );
 };
+
 export default Item;
